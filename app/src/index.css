@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 25% 2%;
+    --foreground: 0 0% 88%;
+    --card: 228 35% 7%;
+    --card-foreground: 0 0% 88%;
+    --popover: 228 35% 7%;
+    --popover-foreground: 0 0% 88%;
+    --primary: 172 100% 44%;
+    --primary-foreground: 240 25% 2%;
+    --secondary: 228 20% 12%;
+    --secondary-foreground: 0 0% 88%;
+    --muted: 228 20% 12%;
+    --muted-foreground: 228 10% 55%;
+    --accent: 172 100% 44%;
+    --accent-foreground: 240 25% 2%;
+    --destructive: 346 100% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 172 100% 44% / 0.15;
+    --input: 228 20% 15%;
+    --ring: 172 100% 44%;
+    --radius: 0px;
+    --sidebar-background: 228 35% 5%;
+    --sidebar-foreground: 0 0% 88%;
+    --sidebar-primary: 172 100% 44%;
+    --sidebar-primary-foreground: 240 25% 2%;
+    --sidebar-accent: 228 20% 12%;
+    --sidebar-accent-foreground: 0 0% 88%;
+    --sidebar-border: 172 100% 44% / 0.15;
+    --sidebar-ring: 172 100% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Terminal Rune Animations */
+@keyframes orbit {
+  from {
+    stroke-dashoffset: 500;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(0, 224, 199, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 224, 199, 0.8));
+  }
+}
+
+@keyframes typewriter-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gate-open {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes sos-flash {
+  0%, 100% {
+    border-color: rgba(0, 224, 199, 0.15);
+  }
+  50% {
+    border-color: #FF3366;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utility Classes */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 224, 199, 0.5);
+}
+
+.glow-text-strong {
+  text-shadow: 0 0 20px rgba(0, 224, 199, 0.8), 0 0 40px rgba(0, 224, 199, 0.3);
+}
+
+.glow-border {
+  box-shadow: 0 0 15px rgba(0, 224, 199, 0.2), inset 0 0 15px rgba(0, 224, 199, 0.05);
+}
+
+.rune-ring {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 500;
+  animation: orbit 6s linear infinite;
+}
+
+.rune-container.validated .rune-ring {
+  stroke: #E0E0E0;
+  animation-duration: 3s;
+}
+
+.rune-orbiter:nth-child(2) {
+  transform: rotateY(60deg) rotateX(30deg);
+  animation: spin 3s linear infinite;
+}
+
+.rune-orbiter:nth-child(3) {
+  transform: rotateY(120deg) rotateX(60deg);
+  animation: spin 4s linear infinite;
+}
+
+.rune-orbiter:nth-child(4) {
+  transform: rotateY(180deg) rotateX(90deg);
+  animation: spin 5s linear infinite;
+}
+
+.rune-orbiter:nth-child(5) {
+  transform: rotateY(240deg) rotateX(120deg);
+  animation: spin 6s linear infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 224, 199, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 224, 199, 0.5);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 224, 199, 0.3);
+  color: #E0E0E0;
+}
